@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Es6基础练习</title>
+	<style>
+		div {
+			width: 400px;
+			height: 400px;
+			background-color: #f1f1f1;
+			display: none;
+		}
+		div:first-of-type {
+			display: block;
+		}
+	</style>
+	<script type="text/javascript">
+		// let a = 10;
+		// console.log(a);
+		// for(var i = 0; i < 5; i ++) {
+
+		// }
+		// console.log(i); //变量泄漏；
+
+		// for(let j = 0; j < 10; j ++) {
+
+		// }
+		// console.log(j); //j is not defined
+
+		// {
+		// 	const a2 = "给常量赋值操作"
+		// }
+		// console.log(a2);
+		// let str1 = "chongfu"
+		// console.log(str1.repeat(2));
+		// function show(h) {
+		// 	console.log(h.repeat(3));
+		// }
+		// show("hellow")
+		// let str2 = "hello word";
+		// console.log(str2.includes('h', 0));
+
+		// let domeJson = {
+		// 	"div": `<div>这是一个div</div>`,
+		// 	"span": `<span>这是一个span</span>`
+		// }
+
+		// document.write(`${domeJson.div + domeJson.span}`);
+
+		// let arr1 = [1, 2, 3, 4, 5]
+		// arr1.find( function(item, index, arr) {
+		// 	console.log(item, index, arr);
+		// 	console.log(arr[index])
+		// })
+		// 
+		// (function() {
+		// 	console.log(123);
+		// })()
+
+		// let x = 10;
+		// ((x) => {
+		// 	console.log(x);
+		// })(x)
+
+		// function show2(x=5) {
+		// 	console.log(x);
+		// }
+		// show2(1);
+		// function demo(x) {
+		// 	var x = x || 5;
+		// 	console.log(x);
+		// }
+		// demo()
+
+		// function demo(...x) {
+		// 	console.log(x);
+		// }
+		// demo(1,2,3);
+		// let a = [1, 2];
+		// let b = [3, 4];
+		// let c = [5, 6];
+		// console.log(a.concat(b.concat(c)));
+		// console.log([...a, ...b, ...c]);
+
+		// var json = {}
+		// console.log(json);
+		let json = {
+			set myCty(s) {
+				console.log(s);
+			},
+			get myCty() {
+				console.log(1);
+			}
+		}
+		json.myCty = 2;
+	</script>
+</head>
+<body>
+	<input value="选项一" type="button" />
+	<input value="选项二" type="button" />
+	<input value="选项三" type="button" />
+	<div>这是选项一对应的选项</div>
+	<div>这是选项二对应的选项</div>
+	<div>这是选项三对应的选项</div>
+</body>
+<script type="text/javascript">
+	[...document.querySelectorAll('input')].find((item, index) => {
+		item['onclick'] = () => {
+			[...document.querySelectorAll('div')].find((d) => {
+				d.style.display = "none";
+			})
+			// [...document.querySelectorAll('div')][index].style
+			let block = [...document.querySelectorAll('div')][index];
+			block.style.display = "block";
+		}
+	})
+</script>
+</html>
